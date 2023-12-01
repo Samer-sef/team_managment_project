@@ -10,6 +10,7 @@
         <hr class="bg-secondary border-2 border-top border-secondary" />
         <div class="card m-2">
             <div class="card-body">
+                <a class="text-reset text-decoration-none" href="{% url 'DetailsUpdate' member.id %}">
                 <div class="row">
                     <div class="col-md-2 d-inline-flex align-items-center">
                         <i class="fas fa-user h3"></i>
@@ -25,6 +26,7 @@
                         <p class="card-subtitle text-muted">{{member.mobile}}</p>
                     </div>
                 </div>
+                </a>
             </div>
         </div>
     {% endfor %}
