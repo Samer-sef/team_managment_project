@@ -3,8 +3,14 @@
 
 
 {% block content %}
-<p class="h3">Add a team member</p>
-<p class="h6 text-muted">Set email, mobile and role.</p>
+{% if form.instance.id %}
+    <p class="h3">Edit a team member</p>
+    <p class="h6 text-muted">Edit email, mobile and role.</p>
+{% else %}
+    <p class="h3">Add a team member</p>
+    <p class="h6 text-muted">Set email, mobile and role.</p>
+{% endif %}
+
 <hr class="bg-secondary border-2 border-top border-secondary"/>
 <form action="" method="post" autocomplete="off" class="clearfix">
     {% csrf_token %}
