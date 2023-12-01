@@ -1,5 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>asdasd</h1>
+    <a class="icon-link d-flex justify-content-end" href="details" style="text-decoration:none">
+        <i class="fas fa-plus h4"></i>
+    </a>
+    <p class="h3">Team Members</p>
+    <p class="h6 text-muted">You have {{members_list|length}} team members.</p>
+    {% for member in members_list %}
+        <hr class="bg-secondary border-2 border-top border-secondary" />
+        <div class="card m-2">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2 d-inline-flex align-items-center">
+                        <i class="fas fa-user h3"></i>
+                    </div>
+                    <div class="col-md-10">
+                        <p class="card-title">
+                            {{member.first_name}} {{member.last_name}}
+                            {% if member.role == True %}
+                                (Admin)
+                            {% endif %}
+                        </p>
+                        <p class="card-subtitle text-muted">{{member.email}}</p>
+                        <p class="card-subtitle text-muted">{{member.mobile}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}

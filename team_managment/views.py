@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from .forms import MemberForm
+from .models import Member
 
 
 def home(request):
-    return render(request, 'list_page.html', {})
+    context = {'members_list': Member.objects.all()}
+    return render(request, 'list_page.html', context)
 
 def details(request):
     if request.method == "GET":
