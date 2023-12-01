@@ -12,17 +12,19 @@ def details(request, id=0):
         if id == 0:
             form = MemberForm()
         else:
-            member = Member.objects.get(pk=id)
-            form = MemberForm(instance=member)
+            form = MemberForm(instance=Member.objects.get(pk=id))
         return render(request, 'details_page.html', {'form': form})
     else:
         if id == 0:
             form = MemberForm(request.POST)
         else:
-            member = Member.objects.get(pk=id)
-            form = MemberForm(request.POST, instance=member)
+            form = MemberForm(request.POST, instance=Member.objects.get(pk=id))
         if form.is_valid():
             form.save()
         return redirect('/')
+    
+def delete(request, id=0):
+    Member.objects.get(pk=id).delete()
+    return redirect('/')
 
 

@@ -6,16 +6,17 @@
 <p class="h3">Add a team member</p>
 <p class="h6 text-muted">Set email, mobile and role.</p>
 <hr class="bg-secondary border-2 border-top border-secondary"/>
-<form action="" method="post" autocomplete="off">
+<form action="" method="post" autocomplete="off" class="clearfix">
     {% csrf_token %}
     {{form|crispy}}
-
-    <div class="row">
-        <div class="col-md-8">
-            <button type="submit" class="btn btn-primary btn-block btn-lg">
-                Save
-            </button>
-        </div>
-    </div>
+    <!-- Do not display the delete btn on add new member page. -->
+    {% if form.instance.id %}
+        <a class="text-reset text-decoration-none btn btn-light border btn-lg" href="{% url 'Delete' form.instance.id %}">
+            Delete
+        </a>
+    {% endif %}
+    <button type="submit" class="btn btn-primary btn-lg float-end">
+        Save
+    </button>
 </form>
 {% endblock content %}
