@@ -1,5 +1,6 @@
 from django.db import models
 
+# Possible improvement: move ROLE_CHOICES to a new folder for constants.
 ROLE_CHOICES = (
         (False, 'Regular - Can\'t delete members'),
         (True, 'Admin - Can delete members'),

@@ -2,6 +2,7 @@ from django import forms
 from .models import Member
 
 class MemberForm(forms.ModelForm):
+    # Possible improvement: use regex to to check for first_name, last_name, mobile.
     first_name = forms.CharField()
     last_name = forms.CharField()
     mobile = forms.IntegerField()

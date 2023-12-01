@@ -3,7 +3,7 @@
 
 
 {% block content %}
-Dynamicly
+<!-- Dynamically display the header content -->
 {% if form.instance.id %}
     <p class="h3">Edit a team member</p>
     <p class="h6 text-muted">Edit email, mobile and role.</p>
@@ -18,6 +18,7 @@ Dynamicly
     {{form|crispy}}
     <!-- Do not display the delete btn on add new member page. -->
     {% if form.instance.id %}
+        <!-- Possible improvement: do a post/delete request instead of get. -->
         <a class="text-reset text-decoration-none btn btn-light border btn-lg" href="{% url 'Delete' form.instance.id %}">
             Delete
         </a>
