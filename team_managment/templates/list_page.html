@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a class="icon-link d-flex float-end" href="details" style="text-decoration:none">
+        <i class="fas fa-plus h4"></i>
+    </a>
+    <p class="h3">Team Members</p>
+    <p class="h6 text-muted">You have {{members_list|length}} team members.</p>
+    {% for member in members_list %}
+        <hr class="bg-secondary border-2 border-top border-secondary" />
+        <div class="card m-2">
+            <div class="card-body">
+                <a class="text-reset text-decoration-none" href="{% url 'DetailsUpdate' member.id %}">
+                <div class="row">
+                    <div class="col-md-2 d-inline-flex align-items-center">
+                        <i class="fas fa-user h3"></i>
+                    </div>
+                    <div class="col-md-10">
+                        <p class="card-title">
+                            {{member.first_name}} {{member.last_name}}
+                            {% if member.role == True %}
+                                (Admin)
+                            {% endif %}
+                        </p>
+                        <p class="card-subtitle text-muted">{{member.email}}</p>
+                        <p class="card-subtitle text-muted">{{member.mobile}}</p>
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
