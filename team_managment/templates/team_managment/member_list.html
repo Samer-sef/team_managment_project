@@ -1,7 +1,8 @@
-{% extends 'base.html' %}
+{% extends './base.html' %}
+
 
 {% block content %}
-    <a class="icon-link d-flex float-end" href="details" style="text-decoration:none">
+    <a class="icon-link d-flex float-end" href="{% url 'Create' %}" style="text-decoration:none">
         <i class="fas fa-plus h4"></i>
     </a>
     <p class="h3">Team Members</p>

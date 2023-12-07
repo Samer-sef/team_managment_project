@@ -1,0 +1,14 @@
+{% extends './base.html' %}
+
+
+{% block content %}
+<form method="post">{% csrf_token %}
+    <p>Are you sure you want to delete {{ member.first_name }}?</p>
+    <button type="submit" value="Confirm" class="btn btn-primary btn-lg">
+        Yes
+    </button>
+    <a href="{% url 'Home' %}" class="text-reset text-decoration-none btn btn-light border btn-lg">
+        No
+    </a>
+</form>
+{% endblock %}
